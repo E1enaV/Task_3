@@ -23,8 +23,9 @@ public class BaseTest {
     public void setUp() {
         String browser = System.getProperty("browser", "chrome");
         if ("yandex".equals(browser)) {
-            System.setProperty("webdriver.chrome.driver", "src/main/resources/yandexdriver.exe");
+            System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
             ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.setBinary("/Applications/Yandex.app/Contents/MacOS/Yandex");
             driver = new ChromeDriver(chromeOptions);
         } else {
             WebDriverManager.chromedriver().setup();
